@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>A Love Letter, Just for You</title>
+  <title>A Love Letter</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <!-- Fonts -->
+  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-  <!-- Tailwind -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Libraries -->
@@ -18,9 +18,11 @@
 
   <style>
     body {
+      margin: 0;
       background: #0c0a09;
-      font-family: 'Satoshi', system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       overflow-x: hidden;
+      color: white;
     }
 
     /* Aurora Background */
@@ -32,13 +34,14 @@
         radial-gradient(circle at 80% 30%, hsla(282,82%,54%,.3), transparent 45%),
         radial-gradient(circle at 50% 80%, hsla(210,89%,60%,.3), transparent 45%),
         radial-gradient(circle at 70% 60%, hsla(35,90%,60%,.3), transparent 40%);
-      animation: auroraMove 20s infinite alternate ease-in-out;
+      animation: auroraMove 18s ease-in-out infinite alternate;
+      filter: blur(50px);
       z-index: -2;
     }
 
     @keyframes auroraMove {
-      0% { filter: blur(40px); transform: scale(1); }
-      100% { filter: blur(60px); transform: scale(1.1); }
+      from { transform: scale(1); }
+      to { transform: scale(1.1); }
     }
 
     /* Glass Card */
@@ -75,39 +78,47 @@
     }
   </style>
 </head>
-<body class="text-white">
+<body>
 
 <div class="aurora"></div>
-<canvas id="heartsCanvas" class="fixed inset-0 z-[-1]"></canvas>
 
-<!-- Progress -->
-<div class="fixed top-4 left-1/2 -translate-x-1/2 w-2/3 h-1 glass rounded-full overflow-hidden">
+<!-- Progress Bar -->
+<div class="fixed top-4 left-1/2 -translate-x-1/2 w-2/3 h-1 glass rounded-full overflow-hidden z-50">
   <div id="progress" class="h-full bg-gradient-to-r from-pink-500 to-red-500 w-0"></div>
 </div>
 
+<!-- Content -->
 <div class="min-h-screen flex items-center justify-center px-4">
   <div id="steps" class="w-full max-w-xl">
 
     <!-- STEP 1 -->
     <div class="step active glass p-8 rounded-2xl text-center">
       <div class="text-5xl mb-4 animate-pulse">❤️</div>
-      <h1 class="text-3xl md:text-4xl font-[Playfair_Display] gradient-text mb-4">Hey You,</h1>
+      <h1 class="text-3xl md:text-4xl font-[Playfair_Display] gradient-text mb-4">
+        Hey You,
+      </h1>
       <p class="text-gray-300 mb-6">
-        I wrote something for you. Not on paper—  
-        but in a little corner of the internet where feelings don’t get interrupted.
+        I wrote something for you. Not on paper,
+        but in a small corner of the internet where feelings stay honest.
       </p>
-      <button class="btn px-8 py-3 rounded-full font-bold" onclick="nextStep()">Read it</button>
+      <button class="btn px-8 py-3 rounded-full font-bold" onclick="nextStep()">
+        Read it
+      </button>
     </div>
 
     <!-- STEP 2 -->
     <div class="step glass p-8 rounded-2xl text-center">
       <div class="text-5xl mb-4">✨</div>
-      <h2 class="text-3xl font-[Playfair_Display] gradient-text mb-4">This Is My Truth</h2>
+      <h2 class="text-3xl font-[Playfair_Display] gradient-text mb-4">
+        This Is My Truth
+      </h2>
       <p class="text-gray-300 mb-6">
-        Somewhere between ordinary days and quiet thoughts,  
-        you became important to me—effortlessly, beautifully.
+        Somewhere between ordinary days and quiet thoughts,
+        you became important to me without asking.
       </p>
-      <button class="btn px-8 py-3 rounded-full font-bold" onclick="nextStep()">Keep going</button>
+      <button class="btn px-8 py-3 rounded-full font-bold" onclick="nextStep()">
+        Keep going
+      </button>
     </div>
 
     <!-- STEP 3 -->
@@ -118,47 +129,65 @@
       <div class="grid grid-cols-2 gap-4 mb-6">
         <div class="glass p-4 rounded-xl col-span-2">
           <h3 class="font-bold mb-1">🌙 Your Presence</h3>
-          <p class="text-gray-300 text-sm">You make silence feel comfortable.</p>
+          <p class="text-gray-300 text-sm">
+            You make silence feel safe.
+          </p>
         </div>
         <div class="glass p-4 rounded-xl">
           <h3 class="font-bold mb-1">😊 Your Smile</h3>
-          <p class="text-gray-300 text-sm">Dangerously unforgettable.</p>
+          <p class="text-gray-300 text-sm">
+            Unfairly beautiful.
+          </p>
         </div>
         <div class="glass p-4 rounded-xl">
           <h3 class="font-bold mb-1">🔥 Your Energy</h3>
-          <p class="text-gray-300 text-sm">It pulls people in.</p>
+          <p class="text-gray-300 text-sm">
+            It stays with people.
+          </p>
         </div>
       </div>
       <div class="text-center">
-        <button class="btn px-8 py-3 rounded-full font-bold" onclick="nextStep()">One memory</button>
+        <button class="btn px-8 py-3 rounded-full font-bold" onclick="nextStep()">
+          One memory
+        </button>
       </div>
     </div>
 
     <!-- STEP 4 -->
     <div class="step glass p-8 rounded-2xl text-center">
-      <h2 class="text-3xl font-[Playfair_Display] gradient-text mb-4">That Moment</h2>
+      <h2 class="text-3xl font-[Playfair_Display] gradient-text mb-4">
+        That Moment
+      </h2>
       <div class="mx-auto w-60 bg-white p-3 shadow-xl rotate-[-3deg] mb-4">
-        <img src="https://i.ibb.co/6Z6XgCg/crush.webp" alt="memory"/>
-        <p class="text-black text-sm mt-2">A memory I keep replaying.</p>
+        <img src="https://i.ibb.co/6Z6XgCg/crush.webp" alt="memory">
+        <p class="text-black text-sm mt-2">
+          A memory I replay often.
+        </p>
       </div>
       <p class="text-gray-300 mb-6">
-        Not because it was perfect—  
-        but because *you* were there.
+        Not because it was perfect,
+        but because you were there.
       </p>
-      <button class="btn px-8 py-3 rounded-full font-bold" onclick="nextStep()">Final words</button>
+      <button class="btn px-8 py-3 rounded-full font-bold" onclick="nextStep()">
+        Final words
+      </button>
     </div>
 
     <!-- STEP 5 -->
     <div class="step glass p-8 rounded-2xl text-center">
       <div class="text-5xl mb-4">💌</div>
-      <h2 class="text-3xl font-[Playfair_Display] gradient-text mb-4">My Love Letter</h2>
+      <h2 class="text-3xl font-[Playfair_Display] gradient-text mb-4">
+        My Love Letter
+      </h2>
       <p class="text-gray-300 mb-6">
-        I don’t know where this goes.  
-        I just know I wanted you to know how deeply you matter to me.
+        I don’t know where this leads.
+        I only know I wanted you to know how much you matter.
       </p>
-      <button id="finalBtn" class="btn px-8 py-3 rounded-full font-bold" onclick="finale()">Open My Heart</button>
+      <button id="finalBtn" class="btn px-8 py-3 rounded-full font-bold" onclick="finale()">
+        Open My Heart
+      </button>
       <p id="finalText" class="mt-6 text-xl font-semibold hidden">
-        I like you. More than I know how to explain. ❤️
+        I like you. More than I can explain. ❤️
       </p>
     </div>
 
@@ -166,30 +195,39 @@
 </div>
 
 <script>
-let current = 0;
-const steps = document.querySelectorAll('.step');
-const progress = document.getElementById('progress');
+  let current = 0;
+  const steps = document.querySelectorAll('.step');
+  const progress = document.getElementById('progress');
 
-function nextStep() {
-  gsap.to(steps[current], {opacity:0, scale:0.95, duration:0.4, onComplete: () => {
-    steps[current].classList.remove('active');
-    current++;
-    steps[current].classList.add('active');
-    gsap.fromTo(steps[current], {opacity:0, scale:1.05}, {opacity:1, scale:1, duration:0.6});
-    progress.style.width = ((current)/(steps.length-1))*100 + '%';
-  }});
-}
+  function nextStep() {
+    gsap.to(steps[current], {
+      opacity: 0,
+      scale: 0.95,
+      duration: 0.4,
+      onComplete: () => {
+        steps[current].classList.remove('active');
+        current++;
+        steps[current].classList.add('active');
+        gsap.fromTo(
+          steps[current],
+          { opacity: 0, scale: 1.05 },
+          { opacity: 1, scale: 1, duration: 0.6 }
+        );
+        progress.style.width = (current / (steps.length - 1)) * 100 + '%';
+      }
+    });
+  }
 
-function finale() {
-  document.getElementById('finalBtn').style.display = 'none';
-  document.getElementById('finalText').classList.remove('hidden');
+  function finale() {
+    document.getElementById('finalBtn').style.display = 'none';
+    document.getElementById('finalText').classList.remove('hidden');
 
-  confetti({
-    particleCount: 200,
-    spread: 120,
-    origin: { y: 0.6 }
-  });
-}
+    confetti({
+      particleCount: 250,
+      spread: 120,
+      origin: { y: 0.7 }
+    });
+  }
 </script>
 
 </body>
